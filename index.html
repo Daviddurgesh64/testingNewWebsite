@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Browse handcrafted gifts, hampers, personalized products, and corporate gifting options."
+  >
+
+  <meta
+    name="theme-color"
+    content="#7c3aed"
+  >
+
+  <title>GiftNest | Thoughtful Gifts for Every Occasion</title>
+
+  <!-- Tailwind CSS via CDN -->
+  https://cdn.tailwindcss.comscript>
+
+  <!-- Custom stylesheet -->
+  css/style.css
+</head>
+
+<body class="bg-slate-100 text-slate-900">
+
+  <!-- =========================
+       Sticky Website Header
+  ========================== -->
+  <header class="sticky top-0 z-50 shadow-md">
+    <div class="bg-violet-700 text-white">
+      <div
+        class="mx-auto flex max-w-7xl flex-wrap items-center gap-4 px-4 py-3 lg:flex-nowrap"
+      >
+        <!-- Logo -->
+        <a
+          href="#"
+          class="flex shrink-0 items-center gap-2"
+          aria-label="GiftNest hometext-violet-700 shadow-sm"
+            aria-hidden="true"
+          >
+            🎁
+          </span>
+
+          <span class="text-xl font-extrabold tracking-tight">
+            GiftNest
+          </span>
+        </a>
+
+        <!-- Search -->
+        <div class="order-3 w-full lg:order-none lg:flex-1">
+          <label for="productSearch" class="sr-only">
+            Search products
+          </label>
+
+          <div class="relative">
+            <span
+              class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400"
+              aria-hidden="true"
+            >
+              🔍
+            </span>
+
+            <input
+              id="productSearch"
+              type="search"
+              autocomplete="off"
+              placeholder="Search for gifts, hampers, mugs..."
+              class="w-full rounded-lg border-0 bg-white py-3 pl-11 pr-12 text-sm text-slate-900 outline-none ring-2 ring-transparent transition focus:ring-amber-400"
+            >
+
+            <button
+              id="clearSearchButton"
+              type="button"
+              class="absolute inset-y-0 right-0 hidden items-center px-4 text-lg text-slate-500 transition hover:text-violet-700"
+              aria-label="Clear search"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+
+        <!-- Contact Link -->
+        #
+          <span aria-hidden="true">💬</span>
+          Contact Us
+        </a>
+      </div>
+    </div>
+
+    <!-- Secondary Category Navigation -->
+    <nav
+      class="category-navigation overflow-x-auto border-b border-slate-200 bg-white"
+      aria-label="Product categories"
+    >
+      <div class="mx-auto flex max-w-7xl whitespace-nowrap px-4">
+        <button
+          type="button"
+          class="category-nav-button active"
+          data-category-filter="all"
+        >
+          All Products
+        </button>
+
+        <button
+          type="button"
+          class="category-nav-button"
+          data-category-filter="Personalized"
+        >
+          Personalized
+        </button>
+
+        <button
+          type="button"
+          class="category-nav-button"
+          data-category-filter="Hampers"
+        >
+          Gift Hampers
+        </button>
+
+        <button
+          type="button"
+          class="category-nav-button"
+          data-category-filter="Home Decor"
+        >
+          Home Decor
+        </button>
+
+        <button
+          type="button"
+          class="category-nav-button"
+          data-category-filter="Corporate"
+        >
+          Corporate Gifts
+        </button>
+
+        <button
+          type="button"
+          class="category-nav-button"
+          data-category-filter="Flowers"
+        >
+          Flowers
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================
+       Main Page Layout
+  ========================== -->
+  <main class="mx-auto max-w-7xl px-4 py-6">
+    <div class="flex flex-col gap-6 lg:flex-row">
+
+      <!-- Mobile Filters Button -->
+      <button
+        id="mobileFilterButton"
+        type="button"
+        class="flex items-center justify-between rounded-xl bg-white px-4 py-3 font-semibold shadow-sm lg:hidden"
+        aria-expanded="false"
+        aria-controls="filterSidebar"
+      >
+        <span>Filters</span>
+        <span aria-hidden="true">☰</span>
+      </button>
+
+      <!-- =========================
+           Filter Sidebar
+      ========================== -->
+      <aside
+        id="filterSidebar"
+        class="hidden shrink-0 lg:block lg:w-64"
+        aria-label="Product filters"
+      >
+        <div class="overflow-hidden rounded-2xl bg-white shadow-sm lg:sticky lg:top-36">
+          <div class="border-b border-slate-200 px-5 py-4">
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg font-bold">Filters</h2>
+
+              <button
+                id="resetFiltersButton"
+                type="button"
+                class="text-sm font-semibold text-violet-700 hover:text-violet-900"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <!-- Category Filters -->
+          <section class="border-b border-slate-200 px-5 py-5">
+            <h3 class="mb-4 font-bold">Categories</h3>
+
+            <div class="space-y-3">
+              <label class="filter-option">
+                <input
+                  type="radio"
+                  name="category"
+                  value="all"
+                  checked
+                >
+                <span>All Categories</span>
+              </label>
+
+              <label class="filter-option">
+                <input
+                  type="radio"
+                  name="category"
+                  value="Personalized"
+                >
+                <span>Personalized Gifts</span>
+              </label>
+
+              <label class="filter-option">
+                <input
+                  type="radio"
+                  name="category"
+                  value="Hampers"
+                >
+                <span>Gift Hampers</span>
+              </label>
+
+              <label class="filter-option">
+                <input
+                  type="radio"
+                  name="category"
+                  value="Home Decor"
+                >
+                <span>Home Decor</span>
+              </label>
+
+              <label class="filter-option">
+                <input
+                  type="radio"
+                  name="category"
+                  value="Corporate"
+                >
+                <span>Corporate Gifts</span>
+              </label>
+
+              <label class="filter-option">
+                <input
+                  type="radio"
+                  name="category"
+                  value="Flowers"
+                >
+                <span>Flowers</span>
+              </label>
+            </div>
+          </section>
+
+          <!-- Price Filters -->
+          <section class="px-5 py-5">
+            <h3 class="mb-4 font-bold">Price Range</h3>
+
+            <div class="space-y-3">
+              <label class="filter-option">
+                <input
+                  type="radio"
+                  name="price"
+                  value="all"
+                  checked
+                >
+                <span>All Prices</span>
+              </label>
+
+              <label class="filter-option">
+                <input
+                  type="radio"
+                  name="price"
+                  value="0-499"
+                >
+                <span>Under ₹500</span>
+              </label>
+
+              <label class="filter-option">
+                <input
+                  type="radio"
+                  name="price"
+                  value="500-999"
+                >
+                <span>₹500 – ₹999</span>
+              </label>
+
+              <label class="filter-option">
+                <input
+                  type="radio"
+                  name="price"
+                  value="1000-1499"
+                >
+                <span>₹1,000 – ₹1,499</span>
+              </label>
+
+              <label class="filter-option">
+                <input
+                  type="radio"
+                  name="price"
+                  value="1500-Infinity"
+                >
+                <span>₹1,500 and above</span>
+              </label>
+            </div>
+          </section>
+        </div>
+      </aside>
+
+      <!-- =========================
+           Catalogue Content
+      ========================== -->
+      <section class="min-w-0 flex-1" aria-labelledby="catalogueHeading">
+
+        <!-- Promotional Banner -->
+        <section
+          class="promo-banner relative mb-6 overflow-hidden rounded-2xl bg-gradient-to-r from-violet-800 via-purple-700 to-fuchsia-600 px-6 py-8 text-white shadow-lg sm:px-10 sm:py-10"
+          aria-label="Promotional offer"
+        >
+          <div class="relative z-10 max-w-xl">
+            <p
+              class="mb-3 inline-flex rounded-full bg-white/20 px-3 py-1 text-xs font-bold uppercase tracking-wider backdrop-blur-sm"
+            >
+              Special Gifting Collection
+            </p>
+
+            <h1 class="text-3xl font-black leading-tight sm:text-4xl">
+              Make every celebration unforgettable
+            </h1>
+
+            <p class="mt-3 max-w-lg text-sm text-violet-100 sm:text-base">
+              Explore personalized gifts, premium hampers, elegant décor,
+              and thoughtful surprises for every occasion.
+            </p>
+
+            <button
+              id="exploreCollectionButton"
+              type="button"
+              class="mt-6 rounded-lg bg-amber-400 px-5 py-3 text-sm font-bold text-slate-900 transition hover:bg-amber-300"
+            >
+              Explore Collection
+            </button>
+          </div>
+
+          <div
+            class="absolute -bottom-10 -right-6 text-9xl opacity-20 sm:right-10"
+            aria-hidden="true"
+          >
+            🎁
+          </div>
+        </section>
+
+        <!-- Catalogue Header -->
+        <div
+          class="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between"
+        >
+          <div>
+            <h2 id="catalogueHeading" class="text-2xl font-extrabold">
+              Featured Gifts
+            </h2>
+
+            <p
+              id="productCount"
+              class="mt-1 text-sm text-slate-600"
+              aria-live="polite"
+            >
+              Showing 12 products
+            </p>
+          </div>
+
+          <label class="flex items-center gap-2 text-sm font-medium">
+            <span>Sort by:</span>
+
+            <select
+              id="sortProducts"
+              class="rounded-lg border border-slate-300 bg-white px-3 py-2 outline-none transition focus:border-violet-500 focus:ring-2 focus:ring-violet-200"
+            >
+              <option value="featured">Featured</option>
+              <option value="price-low-high">Price: Low to High</option>
+              <option value="price-high-low">Price: High to Low</option>
+              <option value="name-a-z">Name: A to Z</option>
+            </select>
+          </label>
+        </div>
+
+        <!-- Product Grid -->
+        <div
+          id="productGrid"
+          class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
+        >
+          <!-- Product 1 -->
+          <article
+            class="product-card"
+            data-name="Personalized Photo Mug"
+            data-category="Personalized"
+            data-price="399"
+            data-order="1"
+          >
+            <div class="product-image-wrapper">
+              <span class="product-badge">Bestseller</span>
+
+              https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=800&q=80
+            </div>
+
+            <div class="flex flex-1 flex-col p-4">
+              <p class="product-category">Personalized</p>
+
+              <h3 class="product-title line-clamp-2">
+                Personalized Photo Mug with Custom Message
+              </h3>
+
+              <p class="mt-2 text-xs text-slate-500">
+                Custom photo • Ceramic • 325 ml
+              </p>
+
+              <div class="mt-auto pt-4">
+                <div class="mb-4 flex items-end justify-between gap-3">
+                  <div>
+                    <span class="product-price">₹399</span>
+                    <span class="product-original-price">₹599</span>
+                  </div>
+
+                  <span class="discount-label">33% off</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="whatsapp-button"
+                  data-product-name="Personalized Photo Mug"
+                  data-product-price="399"
+                >
+                  <span aria-hidden="true">💬</span>
+                  Buy on WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 2 -->
+          <article
+            class="product-card"
+            data-name="Luxury Chocolate Gift Hamper"
+            data-category="Hampers"
+            data-price="1299"
+            data-order="2"
+          >
+            <div class="product-image-wrapper">
+              <span class="product-badge">Popular</span>
+
+              https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80
+            </div>
+
+            <div class="flex flex-1 flex-col p-4">
+              <p class="product-category">Hampers</p>
+
+              <h3 class="product-title line-clamp-2">
+                Luxury Chocolate Gift Hamper for Celebrations
+              </h3>
+
+              <p class="mt-2 text-xs text-slate-500">
+                Premium chocolates • Gift box • Greeting card
+              </p>
+
+              <div class="mt-auto pt-4">
+                <div class="mb-4 flex items-end justify-between gap-3">
+                  <div>
+                    <span class="product-price">₹1,299</span>
+                    <span class="product-original-price">₹1,599</span>
+                  </div>
+
+                  <span class="discount-label">19% off</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="whatsapp-button"
+                  data-product-name="Luxury Chocolate Gift Hamper"
+                  data-product-price="1299"
+                >
+                  <span aria-hidden="true">💬</span>
+                  Buy on WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 3 -->
+          <article
+            class="product-card"
+            data-name="Personalized LED Name Lamp"
+            data-category="Personalized"
+            data-price="899"
+            data-order="3"
+          >
+            <div class="product-image-wrapper">
+              <span class="product-badge">Customizable</span>
+
+              https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80
+            </div>
+
+            <div class="flex flex-1 flex-col p-4">
+              <p class="product-category">Personalized</p>
+
+              <h3 class="product-title line-clamp-2">
+                Personalized LED Name Lamp for Bedroom Décor
+              </h3>
+
+              <p class="mt-2 text-xs text-slate-500">
+                Custom name • Warm light • USB powered
+              </p>
+
+              <div class="mt-auto pt-4">
+                <div class="mb-4 flex items-end justify-between gap-3">
+                  <div>
+                    <span class="product-price">₹899</span>
+                    <span class="product-original-price">₹1,199</span>
+                  </div>
+
+                  <span class="discount-label">25% off</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="whatsapp-button"
+                  data-product-name="Personalized LED Name Lamp"
+                  data-product-price="899"
+                >
+                  <span aria-hidden="true">💬</span>
+                  Buy on WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 4 -->
+          <article
+            class="product-card"
+            data-name="Elegant Ceramic Flower Vase"
+            data-category="Home Decor"
+            data-price="749"
+            data-order="4"
+          >
+            <div class="product-image-wrapper">
+              https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=80
+            </div>
+
+            <div class="flex flex-1 flex-col p-4">
+              <p class="product-category">Home Decor</p>
+
+              <h3 class="product-title line-clamp-2">
+                Elegant Ceramic Flower Vase for Modern Interiors
+              </h3>
+
+              <p class="mt-2 text-xs text-slate-500">
+                Minimal design • Premium ceramic • Table décor
+              </p>
+
+              <div class="mt-auto pt-4">
+                <div class="mb-4 flex items-end justify-between gap-3">
+                  <div>
+                    <span class="product-price">₹749</span>
+                    <span class="product-original-price">₹999</span>
+                  </div>
+
+                  <span class="discount-label">25% off</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="whatsapp-button"
+                  data-product-name="Elegant Ceramic Flower Vase"
+                  data-product-price="749"
+                >
+                  <span aria-hidden="true">💬</span>
+                  Buy on WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 5 -->
+          <article
+            class="product-card"
+            data-name="Executive Corporate Gift Set"
+            data-category="Corporate"
+            data-price="1599"
+            data-order="5"
+          >
+            <div class="product-image-wrapper">
+              <span class="product-badge">Premium</span>
+
+              https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80
+            </div>
+
+            <div class="flex flex-1 flex-col p-4">
+              <p class="product-category">Corporate</p>
+
+              <h3 class="product-title line-clamp-2">
+                Executive Corporate Gift Set with Notebook and Pen
+              </h3>
+
+              <p class="mt-2 text-xs text-slate-500">
+                Premium box • Notebook • Metal pen
+              </p>
+
+              <div class="mt-auto pt-4">
+                <div class="mb-4 flex items-end justify-between gap-3">
+                  <div>
+                    <span class="product-price">₹1,599</span>
+                    <span class="product-original-price">₹1,999</span>
+                  </div>
+
+                  <span class="discount-label">20% off</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="whatsapp-button"
+                  data-product-name="Executive Corporate Gift Set"
+                  data-product-price="1599"
+                >
+                  <span aria-hidden="true">💬</span>
+                  Buy on WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 6 -->
+          <article
+            class="product-card"
+            data-name="Fresh Rose Bouquet"
+            data-category="Flowers"
+            data-price="699"
+            data-order="6"
+          >
+            <div class="product-image-wrapper">
+              <span class="product-badge">Fresh</span>
+
+              https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=800&q=80
+            </div>
+
+            <div class="flex flex-1 flex-col p-4">
+              <p class="product-category">Flowers</p>
+
+              <h3 class="product-title line-clamp-2">
+                Fresh Rose Bouquet with Premium Gift Wrapping
+              </h3>
+
+              <p class="mt-2 text-xs text-slate-500">
+                Fresh roses • Premium wrapping • Message card
+              </p>
+
+              <div class="mt-auto pt-4">
+                <div class="mb-4 flex items-end justify-between gap-3">
+                  <div>
+                    <span class="product-price">₹699</span>
+                    <span class="product-original-price">₹899</span>
+                  </div>
+
+                  <span class="discount-label">22% off</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="whatsapp-button"
+                  data-product-name="Fresh Rose Bouquet"
+                  data-product-price="699"
+                >
+                  <span aria-hidden="true">💬</span>
+                  Buy on WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 7 -->
+          <article
+            class="product-card"
+            data-name="Customized Wooden Photo Frame"
+            data-category="Personalized"
+            data-price="549"
+            data-order="7"
+          >
+            <div class="product-image-wrapper">
+              https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80
+            </div>
+
+            <div class="flex flex-1 flex-col p-4">
+              <p class="product-category">Personalized</p>
+
+              <h3 class="product-title line-clamp-2">
+                Customized Wooden Photo Frame with Engraved Message
+              </h3>
+
+              <p class="mt-2 text-xs text-slate-500">
+                Wooden frame • Custom engraving • Photo print
+              </p>
+
+              <div class="mt-auto pt-4">
+                <div class="mb-4 flex items-end justify-between gap-3">
+                  <div>
+                    <span class="product-price">₹549</span>
+                    <span class="product-original-price">₹749</span>
+                  </div>
+
+                  <span class="discount-label">27% off</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="whatsapp-button"
+                  data-product-name="Customized Wooden Photo Frame"
+                  data-product-price="549"
+                >
+                  <span aria-hidden="true">💬</span>
+                  Buy on WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 8 -->
+          <article
+            class="product-card"
+            data-name="Tea and Cookies Celebration Hamper"
+            data-category="Hampers"
+            data-price="999"
+            data-order="8"
+          >
+            <div class="product-image-wrapper">
+              <span class="product-badge">Value Pack</span>
+
+              https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80
+            </div>
+
+            <div class="flex flex-1 flex-col p-4">
+              <p class="product-category">Hampers</p>
+
+              <h3 class="product-title line-clamp-2">
+                Tea and Cookies Celebration Hamper
+              </h3>
+
+              <p class="mt-2 text-xs text-slate-500">
+                Premium tea • Assorted cookies • Gift packaging
+              </p>
+
+              <div class="mt-auto pt-4">
+                <div class="mb-4 flex items-end justify-between gap-3">
+                  <div>
+                    <span class="product-price">₹999</span>
+                    <span class="product-original-price">₹1,249</span>
+                  </div>
+
+                  <span class="discount-label">20% off</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="whatsapp-button"
+                  data-product-name="Tea and Cookies Celebration Hamper"
+                  data-product-price="999"
+                >
+                  <span aria-hidden="true">💬</span>
+                  Buy on WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 9 -->
+          <article
+            class="product-card"
+            data-name="Scented Candle Gift Box"
+            data-category="Home Decor"
+            data-price="449"
+            data-order="9"
+          >
+            <div class="product-image-wrapper">
+              https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80
+            </div>
+
+            <div class="flex flex-1 flex-col p-4">
+              <p class="product-category">Home Decor</p>
+
+              <h3 class="product-title line-clamp-2">
+                Aromatic Scented Candle Gift Box
+              </h3>
+
+              <p class="mt-2 text-xs text-slate-500">
+                Natural wax • Relaxing fragrance • Gift-ready box
+              </p>
+
+              <div class="mt-auto pt-4">
+                <div class="mb-4 flex items-end justify-between gap-3">
+                  <div>
+                    <span class="product-price">₹449</span>
+                    <span class="product-original-price">₹649</span>
+                  </div>
+
+                  <span class="discount-label">31% off</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="whatsapp-button"
+                  data-product-name="Scented Candle Gift Box"
+                  data-product-price="449"
+                >
+                  <span aria-hidden="true">💬</span>
+                  Buy on WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 10 -->
+          <article
+            class="product-card"
+            data-name="Personalized Corporate Welcome Kit"
+            data-category="Corporate"
+            data-price="1899"
+            data-order="10"
+          >
+            <div class="product-image-wrapper">
+              <span class="product-badge">Bulk Orders</span>
+
+              https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80
+            </div>
+
+            <div class="flex flex-1 flex-col p-4">
+              <p class="product-category">Corporate</p>
+
+              <h3 class="product-title line-clamp-2">
+                Personalized Corporate Employee Welcome Kit
+              </h3>
+
+              <p class="mt-2 text-xs text-slate-500">
+                Bottle • Notebook • Pen • Custom branding
+              </p>
+
+              <div class="mt-auto pt-4">
+                <div class="mb-4 flex items-end justify-between gap-3">
+                  <div>
+                    <span class="product-price">₹1,899</span>
+                    <span class="product-original-price">₹2,299</span>
+                  </div>
+
+                  <span class="discount-label">17% off</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="whatsapp-button"
+                  data-product-name="Personalized Corporate Welcome Kit"
+                  data-product-price="1899"
+                >
+                  <span aria-hidden="true">💬</span>
+                  Buy on WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 11 -->
+          <article
+            class="product-card"
+            data-name="Sunflower Happiness Bouquet"
+            data-category="Flowers"
+            data-price="799"
+            data-order="11"
+          >
+            <div class="product-image-wrapper">
+              https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=800&q=80
+            </div>
+
+            <div class="flex flex-1 flex-col p-4">
+              <p class="product-category">Flowers</p>
+
+              <h3 class="product-title line-clamp-2">
+                Sunflower Happiness Bouquet with Message Card
+              </h3>
+
+              <p class="mt-2 text-xs text-slate-500">
+                Fresh sunflowers • Premium wrapping • Message card
+              </p>
+
+              <div class="mt-auto pt-4">
+                <div class="mb-4 flex items-end justify-between gap-3">
+                  <div>
+                    <span class="product-price">₹799</span>
+                    <span class="product-original-price">₹999</span>
+                  </div>
+
+                  <span class="discount-label">20% off</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="whatsapp-button"
+                  data-product-name="Sunflower Happiness Bouquet"
+                  data-product-price="799"
+                >
+                  <span aria-hidden="true">💬</span>
+                  Buy on WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 12 -->
+          <article
+            class="product-card"
+            data-name="Premium Dry Fruit Gift Box"
+            data-category="Hampers"
+            data-price="1499"
+            data-order="12"
+          >
+            <div class="product-image-wrapper">
+              <span class="product-badge">Festive Pick</span>
+
+              https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=800&q=80
+            </div>
+
+            <div class="flex flex-1 flex-col p-4">
+              <p class="product-category">Hampers</p>
+
+              <h3 class="product-title line-clamp-2">
+                Premium Dry Fruit Gift Box for Festivals
+              </h3>
+
+              <p class="mt-2 text-xs text-slate-500">
+                Assorted dry fruits • Premium box • Festive sleeve
+              </p>
+
+              <div class="mt-auto pt-4">
+                <div class="mb-4 flex items-end justify-between gap-3">
+                  <div>
+                    <span class="product-price">₹1,499</span>
+                    <span class="product-original-price">₹1,799</span>
+                  </div>
+
+                  <span class="discount-label">17% off</span>
+                </div>
+
+                <button
+                  type="button"
+                  class="whatsapp-button"
+                  data-product-name="Premium Dry Fruit Gift Box"
+                  data-product-price="1499"
+                >
+                  <span aria-hidden="true">💬</span>
+                  Buy on WhatsApp
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Empty State -->
+        <div
+          id="emptyState"
+          class="hidden rounded-2xl bg-white px-6 py-14 text-center shadow-sm"
+          role="status"
+        >
+          <div class="text-5xl" aria-hidden="true">🔎</div>
+
+          <h3 class="mt-4 text-xl font-bold">No products found</h3>
+
+          <p class="mt-2 text-sm text-slate-600">
+            Try changing your search term or resetting the filters.
+          </p>
+
+          <button
+            id="emptyStateResetButton"
+            type="button"
+            class="mt-5 rounded-lg bg-violet-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-violet-800"
+          >
+            Reset Filters
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- =========================
+       Footer
+  ========================== -->
+  <footer class="mt-10 bg-slate-950 text-slate-300">
+    <div
+      class="mx-auto grid max-w-7xl gap-8 px-4 py-10 md:grid-cols-3"
+    >
+      <section>
+        <h2 class="text-lg font-bold text-white">GiftNest</h2>
+
+        <p class="mt-3 max-w-sm text-sm leading-6 text-slate-400">
+          Thoughtfully selected gifts for birthdays, anniversaries,
+          festivals, corporate occasions, and everyday celebrations.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-bold text-white">Quick Links</h2>
+
+        <nav class="mt-3 flex flex-col gap-2 text-sm" aria-label="Footer links">
+          #Home</a>
+          #catalogueHeadingProducts</a>
+          #
+            Contact on WhatsApp
+          </a>
+        </nav>
+      </section>
+
+      <section>
+        <h2 class="font-bold text-white">Ordering Information</h2>
+
+        <p class="mt-3 text-sm leading-6 text-slate-400">
+          Select a product and use the WhatsApp button to confirm
+          customization, availability, delivery, and final pricing.
+        </p>
+      </section>
+    </div>
+
+    <div class="border-t border-slate-800 px-4 py-4 text-center text-xs text-slate-500">
+      © <span id="currentYear"></span> GiftNest. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  js/script.jsscript>
+</body>
+</html>
