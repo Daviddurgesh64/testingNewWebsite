@@ -1,0 +1,367 @@
+/* =========================
+   Root and Base Styles
+========================= */
+
+:root {
+  --primary-color: #7c3aed;
+  --primary-dark: #5b21b6;
+  --accent-color: #fbbf24;
+  --whatsapp-color: #16a34a;
+  --whatsapp-dark: #15803d;
+  --card-border: #e2e8f0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Prevent native search decorations from affecting layout. */
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+/* =========================
+   Custom Scrollbar
+========================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid #f1f5f9;
+  border-radius: 999px;
+  background: #a78bfa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Firefox scrollbar support. */
+* {
+  scrollbar-color: #a78bfa #f1f5f9;
+  scrollbar-width: thin;
+}
+
+/* =========================
+   Header Category Navigation
+========================= */
+
+.category-navigation {
+  scrollbar-width: thin;
+}
+
+.category-nav-button {
+  position: relative;
+  flex-shrink: 0;
+  padding: 0.9rem 1rem;
+  color: #475569;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.category-nav-button:hover {
+  color: var(--primary-color);
+  background-color: #f5f3ff;
+}
+
+.category-nav-button::after {
+  position: absolute;
+  right: 1rem;
+  bottom: 0;
+  left: 1rem;
+  height: 3px;
+  border-radius: 999px 999px 0 0;
+  background-color: var(--primary-color);
+  content: "";
+  opacity: 0;
+  transform: scaleX(0);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.category-nav-button.active {
+  color: var(--primary-color);
+}
+
+.category-nav-button.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* =========================
+   Sidebar Filters
+========================= */
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #475569;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.filter-option:hover {
+  color: var(--primary-color);
+}
+
+.filter-option input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* =========================
+   Promotional Banner
+========================= */
+
+.promo-banner::before,
+.promo-banner::after {
+  position: absolute;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 10%);
+  content: "";
+}
+
+.promo-banner::before {
+  top: -5rem;
+  right: 8rem;
+  width: 14rem;
+  height: 14rem;
+}
+
+.promo-banner::after {
+  right: -3rem;
+  bottom: -5rem;
+  width: 16rem;
+  height: 16rem;
+}
+
+/* =========================
+   Product Cards
+========================= */
+
+.product-card {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgb(15 23 42 / 5%);
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.product-card:hover {
+  border-color: #c4b5fd;
+  box-shadow: 0 16px 32px rgb(76 29 149 / 12%);
+  transform: translateY(-5px);
+}
+
+.product-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background-color: #f8fafc;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  transition: transform 350ms ease;
+
+  /* Basic drag prevention for supported browsers. */
+  -webkit-user-drag: none;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.055);
+}
+
+.product-badge {
+  position: absolute;
+  z-index: 2;
+  top: 0.75rem;
+  left: 0.75rem;
+  border-radius: 999px;
+  background-color: var(--accent-color);
+  padding: 0.35rem 0.65rem;
+  color: #422006;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px rgb(15 23 42 / 12%);
+}
+
+.product-category {
+  color: var(--primary-color);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.product-title {
+  margin-top: 0.4rem;
+  min-height: 3rem;
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.5rem;
+}
+
+/* Works without requiring Tailwind's line-clamp plugin. */
+.line-clamp-2 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.product-price {
+  color: #0f172a;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.product-original-price {
+  margin-left: 0.3rem;
+  color: #94a3b8;
+  font-size: 0.78rem;
+  text-decoration: line-through;
+}
+
+.discount-label {
+  border-radius: 0.375rem;
+  background-color: #dcfce7;
+  padding: 0.25rem 0.45rem;
+  color: #166534;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+/* =========================
+   WhatsApp Buttons
+========================= */
+
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  border-radius: 0.625rem;
+  background-color: var(--whatsapp-color);
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 800;
+  box-shadow: 0 5px 12px rgb(22 163 74 / 18%);
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.whatsapp-button:hover {
+  background-color: var(--whatsapp-dark);
+  box-shadow: 0 8px 18px rgb(22 163 74 / 24%);
+  transform: translateY(-1px);
+}
+
+.whatsapp-button:active {
+  transform: translateY(0);
+}
+
+.whatsapp-button:focus-visible,
+.category-nav-button:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 3px;
+}
+
+/* =========================
+   Visibility and Animation
+========================= */
+
+.product-card.is-filtered-out {
+  display: none;
+}
+
+.product-card.is-visible {
+  animation: productFadeIn 240ms ease both;
+}
+
+@keyframes productFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================
+   Responsive Adjustments
+========================= */
+
+@media (max-width: 1023px) {
+  #filterSidebar.is-mobile-open {
+    display: block;
+  }
+}
+
+@media (max-width: 639px) {
+  .product-image-wrapper {
+    aspect-ratio: 16 / 10;
+  }
+
+  .promo-banner::before {
+    right: -5rem;
+  }
+}
+
